@@ -162,89 +162,121 @@ export default function HomePage() {
     <div className="min-h-screen bg-gray-950 text-white overflow-x-hidden">
 
       {/* ── Hero ── */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Layered background */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(99,102,241,0.22),transparent)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_75%_60%,rgba(139,92,246,0.1),transparent)]" />
+      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pb-24">
 
-        {/* Dot grid */}
-        <div className="absolute inset-0 dot-grid opacity-100" />
+        {/* ── Multi-layer background ── */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_100%_60%_at_50%_-20%,rgba(99,102,241,0.28),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_80%_80%,rgba(168,85,247,0.12),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_10%_70%,rgba(20,184,166,0.08),transparent)]" />
+        <div className="absolute inset-0 dot-grid opacity-70" />
 
-        {/* Animated orbs */}
-        <div className="absolute top-[-5%] left-[10%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none animate-float" />
-        <div className="absolute top-[15%] right-[8%] w-[380px] h-[380px] bg-purple-600/10 rounded-full blur-[100px] pointer-events-none" style={{ animationDelay: "1.5s" }} />
-        <div className="absolute bottom-[-5%] left-[35%] w-[450px] h-[320px] bg-teal-600/8 rounded-full blur-[110px] pointer-events-none animate-float" style={{ animationDelay: "3s" }} />
+        {/* Orbs */}
+        <div className="absolute top-[-8%] left-[5%]  w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none animate-float" />
+        <div className="absolute top-[10%] right-[2%] w-[420px] h-[420px] bg-purple-600/12 rounded-full blur-[110px] pointer-events-none animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute bottom-[-5%] left-[30%] w-[500px] h-[300px] bg-teal-600/8 rounded-full blur-[120px] pointer-events-none animate-float" style={{ animationDelay: "4s" }} />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+        {/* Content */}
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 pt-16 text-center">
 
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300 font-medium mb-8 animate-fade-up shadow-inner">
-            <span className="relative flex h-2 w-2 shrink-0">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
+          {/* Top badge */}
+          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-sm font-medium mb-10 animate-fade-up backdrop-blur-sm shadow-[0_0_40px_rgba(99,102,241,0.1)]">
+            <span className="flex items-center gap-1.5 text-gray-400">
+              <span className="relative flex h-2 w-2 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-50" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
+              </span>
+              Miễn phí hoàn toàn
             </span>
-            Miễn phí · Chạy code ngay trên trình duyệt · AI trợ lý 24/7
+            <span className="w-px h-3.5 bg-white/10" />
+            <span className="text-gray-500">⚡ Chạy code ngay trên trình duyệt</span>
+            <span className="w-px h-3.5 bg-white/10" />
+            <span className="text-gray-500">🤖 AI trợ lý 24/7</span>
           </div>
 
-          {/* Title */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight mb-6 animate-fade-up" style={{ animationDelay: "80ms" }}>
-            Học lập trình{" "}
-            <span className="shimmer-text">Fullstack</span>
+          {/* Headline */}
+          <h1 className="text-[clamp(2.8rem,8vw,5.5rem)] font-black tracking-[-0.03em] leading-[1.05] mb-6 animate-fade-up" style={{ animationDelay: "60ms" }}>
+            <span className="text-white">Nền tảng học</span>
+            {" "}
+            <span className="shimmer-text">lập trình</span>
             <br />
-            <span className="text-gray-500 font-extrabold text-4xl sm:text-5xl md:text-6xl">từ đầu đến cuối</span>
+            <span className="text-white">&amp; ngoại ngữ</span>
+            {" "}
+            <span className="bg-gradient-to-r from-gray-400 to-gray-600 bg-clip-text text-transparent">miễn phí</span>
           </h1>
 
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-up" style={{ animationDelay: "140ms" }}>
-            <span className="text-blue-400 font-medium">TypeScript</span> ·{" "}
-            <span className="text-orange-400 font-medium">Java</span> ·{" "}
-            <span className="text-green-400 font-medium">Node.js</span> ·{" "}
-            <span className="text-pink-400 font-medium">NestJS</span> ·{" "}
-            <span className="text-purple-400 font-medium">Next.js</span> ·{" "}
-            <span className="text-teal-400 font-medium">Docker</span>
-            {" — "}bài giảng tiếng Việt, AI trợ lý trong mỗi bài học
+          {/* Subheading */}
+          <p className="text-[1.05rem] text-gray-400 max-w-[560px] mx-auto mb-10 leading-relaxed animate-fade-up" style={{ animationDelay: "120ms" }}>
+            Bài giảng tiếng Việt · Code editor tích hợp · Bài tập có lời giải
+            <br />
+            <span className="text-gray-600">Dành cho người mới bắt đầu đến lập trình viên chuyên nghiệp</span>
           </p>
 
-          {/* CTA buttons */}
-          <div className="flex flex-wrap justify-center gap-3 mb-14 animate-fade-up stagger" style={{ animationDelay: "200ms" }}>
+          {/* CTA row */}
+          <div className="flex flex-wrap justify-center items-center gap-3 mb-12 animate-fade-up" style={{ animationDelay: "180ms" }}>
+            <Link href="/typescript"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold text-sm shadow-xl shadow-indigo-600/30 hover:shadow-indigo-500/50 hover:brightness-110 hover:scale-[1.03] active:scale-[0.97] transition-all"
+            >
+              <span className="text-base">🔷</span>
+              Bắt đầu học ngay
+              <span className="text-indigo-200 text-xs">→</span>
+            </Link>
+            <Link href="/schedule"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-white/[0.06] border border-white/10 text-gray-300 font-semibold text-sm hover:bg-white/10 hover:text-white hover:border-white/20 hover:scale-[1.03] active:scale-[0.97] transition-all backdrop-blur-sm"
+            >
+              <span>🗺️</span> Xem lộ trình học
+            </Link>
+          </div>
+
+          {/* Course pills */}
+          <div className="flex flex-wrap justify-center gap-2 mb-14 animate-fade-up" style={{ animationDelay: "240ms" }}>
             {[
-              { href: "/typescript", label: "TypeScript", icon: "🔷", grad: "from-blue-600 to-indigo-600",   shadow: "hover:shadow-blue-500/40" },
-              { href: "/nodejs",     label: "Node.js",    icon: "🟢", grad: "from-green-600 to-emerald-600",  shadow: "hover:shadow-green-500/40" },
-              { href: "/nestjs",     label: "NestJS",     icon: "🐈", grad: "from-pink-600 to-rose-600",      shadow: "hover:shadow-pink-500/40" },
-              { href: "/nextjs",     label: "Next.js",    icon: "▲",  grad: "from-purple-600 to-violet-600",  shadow: "hover:shadow-purple-500/40" },
-              { href: "/docker",     label: "Docker",     icon: "🐳", grad: "from-teal-600 to-cyan-600",      shadow: "hover:shadow-teal-500/40" },
-              { href: "/java",       label: "Java",       icon: "☕", grad: "from-orange-600 to-amber-600",   shadow: "hover:shadow-orange-500/40" },
+              { href: "/typescript", label: "TypeScript", icon: "🔷", color: "hover:border-blue-500/60   hover:bg-blue-950/30  hover:text-blue-300" },
+              { href: "/java",       label: "Java",       icon: "☕",  color: "hover:border-orange-500/60 hover:bg-orange-950/30 hover:text-orange-300" },
+              { href: "/nodejs",     label: "Node.js",    icon: "🟢", color: "hover:border-green-500/60  hover:bg-green-950/30  hover:text-green-300" },
+              { href: "/nextjs",     label: "Next.js",    icon: "▲",  color: "hover:border-purple-500/60 hover:bg-purple-950/30 hover:text-purple-300" },
+              { href: "/nestjs",     label: "NestJS",     icon: "🐈", color: "hover:border-pink-500/60   hover:bg-pink-950/30   hover:text-pink-300" },
+              { href: "/docker",     label: "Docker",     icon: "🐳", color: "hover:border-teal-500/60   hover:bg-teal-950/30   hover:text-teal-300" },
+              { href: "/kids",       label: "Kids Code",  icon: "🧒", color: "hover:border-yellow-500/60 hover:bg-yellow-950/30 hover:text-yellow-300" },
+              { href: "/english",    label: "English",    icon: "🇬🇧", color: "hover:border-sky-500/60    hover:bg-sky-950/30    hover:text-sky-300" },
+              { href: "/chinese",    label: "Chinese",    icon: "🇨🇳", color: "hover:border-red-500/60    hover:bg-red-950/30    hover:text-red-300" },
             ].map(c => (
               <Link key={c.href} href={c.href}
-                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r ${c.grad} font-semibold text-sm transition-all hover:scale-105 hover:brightness-110 shadow-lg ${c.shadow} hover:shadow-xl animate-fade-up`}
+                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/[0.07] bg-white/[0.03] text-gray-500 text-xs font-semibold transition-all ${c.color}`}
               >
-                <span>{c.icon}</span>{c.label}
+                <span className="text-sm leading-none">{c.icon}</span>
+                {c.label}
               </Link>
             ))}
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: "260ms" }}>
-            {[
-              { n: `${totalLessons}`, label: "Bài học", icon: "📚", accent: "text-blue-400", bg: "from-blue-500/10" },
-              { n: `${totalExercises}+`, label: "Bài tập", icon: "✏️", accent: "text-purple-400", bg: "from-purple-500/10" },
-              { n: `${totalVideos}+`, label: "Video vietsub", icon: "🎬", accent: "text-pink-400", bg: "from-pink-500/10" },
-              { n: "100%", label: "Miễn phí", icon: "🎁", accent: "text-green-400", bg: "from-green-500/10" },
-            ].map(s => (
-              <div key={s.label} className={`glass rounded-2xl p-4 text-center bg-gradient-to-b ${s.bg} to-transparent`}>
-                <div className={`text-xl mb-1 ${s.accent}`}>{s.icon}</div>
-                <div className={`text-2xl font-black ${s.accent}`}>{s.n}</div>
-                <div className="text-xs text-gray-500 mt-0.5">{s.label}</div>
-              </div>
-            ))}
+          {/* Stats bar */}
+          <div className="animate-fade-up" style={{ animationDelay: "300ms" }}>
+            <div className="inline-flex flex-wrap justify-center gap-0 rounded-2xl border border-white/[0.07] bg-white/[0.02] backdrop-blur-sm overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.3)]">
+              {[
+                { n: `${totalLessons}`, label: "Bài học", icon: "📚", accent: "text-blue-400" },
+                { n: `${totalExercises}+`, label: "Bài tập", icon: "✏️", accent: "text-violet-400" },
+                { n: `${totalVideos}+`, label: "Video vietsub", icon: "🎬", accent: "text-pink-400" },
+                { n: "9", label: "Khóa học", icon: "🎓", accent: "text-emerald-400" },
+                { n: "100%", label: "Miễn phí", icon: "🆓", accent: "text-yellow-400" },
+              ].map((s, i, arr) => (
+                <div key={s.label} className={`flex items-center gap-3 px-6 py-4 ${i < arr.length - 1 ? "border-r border-white/[0.06]" : ""}`}>
+                  <span className={`text-xl ${s.accent}`}>{s.icon}</span>
+                  <div className="text-left">
+                    <div className={`text-lg font-black leading-none ${s.accent}`}>{s.n}</div>
+                    <div className="text-[11px] text-gray-600 mt-0.5 whitespace-nowrap">{s.label}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-gray-700 animate-float">
-          <span className="text-xs tracking-wider uppercase text-[10px]">cuộn xuống</span>
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
+        {/* Scroll cue */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 opacity-30 hover:opacity-60 transition-opacity cursor-default">
+          <span className="text-[9px] font-semibold uppercase tracking-[0.2em] text-gray-500">Cuộn xuống</span>
+          <div className="w-5 h-8 rounded-full border border-gray-600 flex items-start justify-center pt-1.5">
+            <div className="w-1 h-2 rounded-full bg-gray-500 animate-bounce" />
+          </div>
         </div>
       </section>
 

@@ -2,12 +2,11 @@ import Groq from "groq-sdk";
 import { NextRequest } from "next/server";
 import { supabase } from "@/lib/supabase";
 
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
-
 export async function POST(req: NextRequest) {
   if (!process.env.GROQ_API_KEY) {
     return new Response("Chưa cấu hình GROQ_API_KEY trong .env.local", { status: 500 });
   }
+  const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
   const { messages, context, sessionId } = await req.json();
 
