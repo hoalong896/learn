@@ -10,7 +10,8 @@
       "Bash(npx tsc *)",
       "Bash(python3 -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(r['language'], r['version']\\) for r in data if r['language'] in ['javascript','typescript','java','python']]\")",
       "Bash(curl -s --max-time 8 \"https://emkc.org/api/v2/piston/runtimes\")",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s --max-time 10 -X POST https://emkc.org/api/v2/piston/execute -H 'Content-Type: application/json' -d '{\"language\":\"javascript\",\"version\":\"18.15.0\",\"files\":[{\"name\":\"main.js\",\"content\":\"console.log\\(\\\\\"hello\\\\\"\\)\"}]}')"
     ],
     "additionalDirectories": [
       "d:\\BT\\Next.js\\learn\\learn_ts\\src\\app\\kids"

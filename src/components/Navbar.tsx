@@ -29,12 +29,8 @@ export default function Navbar() {
   const dropRef = useRef<HTMLDivElement>(null);
 
   const isLessonPage = ALL_COURSES.some(c => pathname.startsWith(c.path + "/"));
-  if (isLessonPage) return null;
-
   const activeCourse = ALL_COURSES.find(c => pathname === c.path || pathname.startsWith(c.path + "/"));
 
-  // Close dropdown on outside click
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     function handle(e: MouseEvent) {
       if (dropRef.current && !dropRef.current.contains(e.target as Node)) {
@@ -44,6 +40,8 @@ export default function Navbar() {
     document.addEventListener("mousedown", handle);
     return () => document.removeEventListener("mousedown", handle);
   }, []);
+
+  if (isLessonPage) return null;
 
   return (
     <>

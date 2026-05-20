@@ -50,24 +50,31 @@ export default function CodeEditor({
     const start = Date.now();
 
     try {
-      const res = await fetch("/api/run-code", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ code: currentCode, language }),
-      });
+      let result: { output: string; exitCode: number };
 
-      const data = await res.json();
-      setExecTime(Date.now() - start);
-
-      if (data.error) {
-        setOutput(data.error);
-        setOutputType("error");
+      if (language === "java") {
+        // Java still uses the API route
+        const res = await fetch("/api/run-code", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ code: currentCode, language }),
+        });
+        const data = await res.json();
+        result = {
+          output:   data.error ?? data.output ?? "(Không có output)",
+          exitCode: data.error ? 1 : (data.exitCode ?? 0),
+        };
       } else {
-        setOutput(data.output || "(Không có output)");
-        setOutputType(data.exitCode === 0 ? "success" : "error");
+        // JS / TS / NodeJS → run directly in browser (no external API)
+        const { runInBrowser } = await import("@/lib/browser-runner");
+        result = await runInBrowser(currentCode, language);
       }
-    } catch {
-      setOutput("Lỗi kết nối. Vui lòng thử lại.");
+
+      setExecTime(Date.now() - start);
+      setOutput(result.output);
+      setOutputType(result.exitCode === 0 ? "success" : "error");
+    } catch (err) {
+      setOutput("Lỗi: " + (err instanceof Error ? err.message : String(err)));
       setOutputType("error");
     } finally {
       setRunning(false);
