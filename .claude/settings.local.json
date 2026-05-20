@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(findstr /i \"error\\\\|failed\\\\|warn\")",
+      "Bash(Select-String -Pattern \"Error|Failed|warn\")"
+    ]
+  }
+}

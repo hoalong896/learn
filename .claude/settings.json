@@ -1,7 +1,24 @@
 {
   "permissions": {
     "allow": [
-      "Read(//d/BT/Next.js/learn/**)"
+      "Read(//d/BT/Next.js/learn/**)",
+      "Bash(npx next *)",
+      "Bash(mkdir -p \"d:\\\\BT\\\\Next.js\\\\learn\\\\learn_ts\\\\src\\\\app\\\\nodejs\\\\[lesson]\" \"d:\\\\BT\\\\Next.js\\\\learn\\\\learn_ts\\\\src\\\\app\\\\nextjs\\\\[lesson]\" 2>&1; echo \"done\")",
+      "Skill(claude-api)",
+      "Skill(claude-api:*)",
+      "Bash(npm install *)",
+      "Bash(node -e \"require\\('@anthropic-ai/sdk'\\); console.log\\('ok'\\)\")",
+      "Bash(Get-ChildItem \"C:\\\\Users\\\\God\\\\Downloads\\\\NEXTJS\" -Recurse)",
+      "Bash(Select-Object Name, Length, FullName)",
+      "Bash(Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\God\\\\Downloads\\\\NEXTJS\" -Recurse | Select-Object Name, @{N='Size\\(MB\\)';E={[math]::Round\\($_.Length/1MB,1\\)}}, FullName | Format-Table -AutoSize)",
+      "Bash(curl -s \"https://emkc.org/api/v2/piston/runtimes\")",
+      "Bash(python -c \"import sys,json; rts=json.load\\(sys.stdin\\); [print\\(r['language'],r['version']\\) for r in rts if r['language'] in ['typescript','java','javascript']]\")",
+      "Bash(findstr /i \"typescript java javascript\")",
+      "Bash(node -e \"const d=require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\); const r=JSON.parse\\(d\\); r.filter\\(x=>['typescript','java','javascript'].includes\\(x.language\\)\\).forEach\\(x=>console.log\\(x.language,x.version\\)\\)\")"
+    ],
+    "additionalDirectories": [
+      "d:\\BT\\Next.js\\learn\\learn_ts\\src\\app\\nodejs"
     ]
   }
 }
