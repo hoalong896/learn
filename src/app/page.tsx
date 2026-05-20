@@ -220,6 +220,12 @@ export default function HomePage() {
               Bắt đầu học ngay
               <span className="text-indigo-200 text-xs">→</span>
             </Link>
+            <Link href="/chat"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-gradient-to-r from-violet-600/80 to-fuchsia-600/80 border border-violet-500/30 text-white font-bold text-sm shadow-lg shadow-violet-600/20 hover:brightness-110 hover:scale-[1.03] active:scale-[0.97] transition-all backdrop-blur-sm"
+            >
+              <span className="text-base">🤖</span>
+              Hỏi AI ngay
+            </Link>
             <Link href="/schedule"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-white/[0.06] border border-white/10 text-gray-300 font-semibold text-sm hover:bg-white/10 hover:text-white hover:border-white/20 hover:scale-[1.03] active:scale-[0.97] transition-all backdrop-blur-sm"
             >

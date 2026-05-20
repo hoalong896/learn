@@ -123,7 +123,13 @@ export default function ChatWidget({ context, courseColor = "blue" }: ChatWidget
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: newMessages, context, sessionId: getSessionId() }),
       });
-      if (!res.ok || !res.body) throw new Error();
+
+      if (!res.ok) {
+        const errText = await res.text().catch(() => `HTTP ${res.status}`);
+        throw new Error(errText || `HTTP ${res.status}`);
+      }
+      if (!res.body) throw new Error("Không nhận được phản hồi từ server.");
+
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
       let accumulated = "";
@@ -137,10 +143,11 @@ export default function ChatWidget({ context, courseColor = "blue" }: ChatWidget
           return updated;
         });
       }
-    } catch {
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Lỗi không xác định.";
       setMessages(prev => {
         const updated = [...prev];
-        updated[updated.length - 1] = { role: "assistant", content: "Xin lỗi, có lỗi xảy ra. Vui lòng thử lại." };
+        updated[updated.length - 1] = { role: "assistant", content: `❌ ${msg}` };
         return updated;
       });
     } finally {

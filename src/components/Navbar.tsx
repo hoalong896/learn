@@ -178,6 +178,19 @@ export default function Navbar() {
               )}
             </div>
 
+            {/* AI Chat */}
+            <Link
+              href="/chat"
+              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-all ${
+                pathname === "/chat"
+                  ? "text-indigo-400 bg-white/8"
+                  : "text-gray-400 hover:text-white hover:bg-white/8"
+              }`}
+            >
+              <span className="text-base leading-none">🤖</span>
+              <span className="hidden sm:inline">AI Chat</span>
+            </Link>
+
             {/* Lộ trình */}
             <Link
               href="/schedule"
