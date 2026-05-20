@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Editor from "@monaco-editor/react";
 
 interface CodeEditorProps {
@@ -25,6 +25,11 @@ export default function CodeEditor({
   const [execTime, setExecTime] = useState<number | null>(null);
   const [copied, setCopied] = useState(false);
   const editorRef = useRef<any>(null);
+  const outputRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (output) outputRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [output]);
 
   const handleEditorDidMount = (editor: any) => {
     editorRef.current = editor;
@@ -174,6 +179,7 @@ export default function CodeEditor({
       {/* Output */}
       {output && (
         <div
+          ref={outputRef}
           className={`border-t ${
             outputType === "error"
               ? "border-red-800/70 bg-red-950/40"

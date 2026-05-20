@@ -7,7 +7,10 @@
       "Bash(git -C \"d:\\\\BT\\\\Next.js\\\\learn\\\\learn_ts\" status)",
       "Bash(git -C \"d:\\\\BT\\\\Next.js\\\\learn\\\\learn_ts\" log --oneline -8)",
       "Bash(mkdir -p \"d:/BT/Next.js/learn/learn_ts/src/app/kids/[lesson]\" \"d:/BT/Next.js/learn/learn_ts/src/app/english/[lesson]\" \"d:/BT/Next.js/learn/learn_ts/src/app/chinese/[lesson]\")",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(python3 -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(r['language'], r['version']\\) for r in data if r['language'] in ['javascript','typescript','java','python']]\")",
+      "Bash(curl -s --max-time 8 \"https://emkc.org/api/v2/piston/runtimes\")",
+      "Bash(python3 -c ' *)"
     ],
     "additionalDirectories": [
       "d:\\BT\\Next.js\\learn\\learn_ts\\src\\app\\kids"

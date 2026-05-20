@@ -340,13 +340,13 @@ export default function ChatPage() {
             </div>
           </div>
 
-          {/* Editor fills remaining space */}
-          <div className="flex-1 min-h-0 p-3">
+          {/* Editor + Output (scrollable) */}
+          <div className="flex-1 min-h-0 overflow-y-auto p-3">
             <CodeEditor
               key={`${lang}-${editorKey}`}
               initialCode={editorCode}
               language={lang}
-              height="100%"
+              height="calc(100vh - 165px)"
             />
           </div>
         </div>
