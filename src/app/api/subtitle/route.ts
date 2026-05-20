@@ -1,10 +1,8 @@
 import { NextRequest } from "next/server";
-import fs from "fs";
-import path from "path";
 
-const SUPABASE_URL = process.env.SUPABASE_URL;
-const BUCKET = process.env.SUPABASE_VIDEO_BUCKET ?? "nestjs-videos";
-const LOCAL_BASE = process.env.VIDEO_BASE_PATH ?? "C:\\Users\\God\\Downloads\\NEXTJS";
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const BUCKET      = process.env.NEXT_PUBLIC_SUPABASE_VIDEO_BUCKET ?? "nestjs-videos";
+const LOCAL_BASE  = process.env.VIDEO_BASE_PATH ?? "C:\\Users\\God\\Downloads\\NEXTJS";
 
 function srtToVtt(srt: string): string {
   return (
@@ -22,7 +20,7 @@ export async function GET(req: NextRequest) {
   const filePath = req.nextUrl.searchParams.get("f");
   if (!filePath) return new Response("Missing path", { status: 400 });
 
-  // Production: fetch .srt from Supabase, convert to VTT
+  // Production: fetch .srt from Supabase Storage, convert to VTT
   if (SUPABASE_URL) {
     const encodedPath = filePath.split("/").map(encodeURIComponent).join("/");
     const url = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${encodedPath}`;
@@ -31,17 +29,15 @@ export async function GET(req: NextRequest) {
       if (!res.ok) return new Response("Not found", { status: 404 });
       const srt = await res.text();
       return new Response(srtToVtt(srt), {
-        headers: {
-          "Content-Type": "text/vtt; charset=utf-8",
-          "Cache-Control": "public, max-age=86400",
-        },
+        headers: { "Content-Type": "text/vtt; charset=utf-8", "Cache-Control": "public, max-age=86400" },
       });
     } catch {
       return new Response("Failed to fetch subtitle", { status: 500 });
     }
   }
 
-  // Development: read from local filesystem
+  // Development only: read from local filesystem via dynamic import
+  const [fs, path] = await Promise.all([import("fs"), import("path")]);
   const resolved = path.resolve(LOCAL_BASE, filePath);
   if (!resolved.startsWith(path.resolve(LOCAL_BASE))) {
     return new Response("Forbidden", { status: 403 });
@@ -49,12 +45,7 @@ export async function GET(req: NextRequest) {
   if (!fs.existsSync(resolved)) {
     return new Response("Not found", { status: 404 });
   }
-
-  const srt = fs.readFileSync(resolved, "utf-8");
-  return new Response(srtToVtt(srt), {
-    headers: {
-      "Content-Type": "text/vtt; charset=utf-8",
-      "Cache-Control": "public, max-age=3600",
-    },
+  return new Response(srtToVtt(fs.readFileSync(resolved, "utf-8")), {
+    headers: { "Content-Type": "text/vtt; charset=utf-8", "Cache-Control": "public, max-age=3600" },
   });
 }
