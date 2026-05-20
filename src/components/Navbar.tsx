@@ -12,6 +12,9 @@ const courses = [
   { path: "/nextjs",     label: "Next.js",    icon: "▲", color: "hover:text-purple-400 data-[active]:text-purple-400" },
   { path: "/nestjs",     label: "NestJS",     icon: "🐈", color: "hover:text-pink-400 data-[active]:text-pink-400" },
   { path: "/docker",     label: "Docker",     icon: "🐳", color: "hover:text-teal-400 data-[active]:text-teal-400" },
+  { path: "/kids",       label: "Kids",       icon: "🧒", color: "hover:text-yellow-400 data-[active]:text-yellow-400" },
+  { path: "/english",    label: "English",    icon: "🇬🇧", color: "hover:text-sky-400 data-[active]:text-sky-400" },
+  { path: "/chinese",    label: "Chinese",    icon: "🇨🇳", color: "hover:text-red-400 data-[active]:text-red-400" },
 ];
 
 export default function Navbar() {

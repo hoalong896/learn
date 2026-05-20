@@ -5,6 +5,9 @@ import { nodejsLessons } from "@/data/nodejs-lessons";
 import { nextjsLessons } from "@/data/nextjs-lessons";
 import { nestjsLessons } from "@/data/nestjs-lessons";
 import { dockerLessons } from "@/data/docker-lessons";
+import { kidsLessons } from "@/data/kids-lessons";
+import { englishLessons } from "@/data/english-lessons";
+import { chineseLessons } from "@/data/chinese-lessons";
 
 const exCount = (lessons: { exercises: unknown[] }[]) =>
   lessons.reduce((s, l) => s + l.exercises.length, 0);
@@ -89,6 +92,45 @@ const COURSES = [
     hoverGlow: "hover-glow-teal",
     hoverBorder: "hover:border-teal-500/50",
   },
+  {
+    href: "/kids", icon: "🧒", title: "Lập trình cho trẻ em", subtitle: "JavaScript cơ bản vui vẻ",
+    desc: "Học lập trình qua ví dụ sinh động, dễ hiểu. Phù hợp cho trẻ em và người mới bắt đầu hoàn toàn.",
+    from: "from-yellow-500", to: "to-amber-500",
+    bg: "from-yellow-950/70 to-amber-950/70",
+    border: "border-yellow-800/40",
+    topAccent: "from-yellow-400 to-amber-400",
+    text: "text-yellow-400", dot: "bg-yellow-500",
+    tags: ["Biến", "Vòng lặp", "Hàm", "Mảng"],
+    badge: "Starter", badgeBg: "bg-yellow-900/60 text-yellow-300 border-yellow-700/50",
+    hoverGlow: "hover-glow-yellow",
+    hoverBorder: "hover:border-yellow-500/50",
+  },
+  {
+    href: "/english", icon: "🇬🇧", title: "Tiếng Anh giao tiếp", subtitle: "Từ A1 đến B2",
+    desc: "Từ vựng, ngữ pháp, hội thoại thực tế. Luyện tập tương tác với bài kiểm tra ngay trong trang.",
+    from: "from-sky-600", to: "to-cyan-600",
+    bg: "from-sky-950/70 to-cyan-950/70",
+    border: "border-sky-800/40",
+    topAccent: "from-sky-500 to-cyan-500",
+    text: "text-sky-400", dot: "bg-sky-500",
+    tags: ["Greetings", "Grammar", "Vocabulary", "Dialogue"],
+    badge: "Ngoại ngữ", badgeBg: "bg-sky-900/60 text-sky-300 border-sky-700/50",
+    hoverGlow: "hover-glow-sky",
+    hoverBorder: "hover:border-sky-500/50",
+  },
+  {
+    href: "/chinese", icon: "🇨🇳", title: "Tiếng Trung cơ bản", subtitle: "Pinyin & HSK 1-3",
+    desc: "Học Pinyin, 4 thanh điệu, từ vựng HSK và ngữ pháp tiếng Trung theo chuẩn quốc tế.",
+    from: "from-red-600", to: "to-rose-600",
+    bg: "from-red-950/70 to-rose-950/70",
+    border: "border-red-800/40",
+    topAccent: "from-red-500 to-rose-500",
+    text: "text-red-400", dot: "bg-red-500",
+    tags: ["Pinyin", "Thanh điệu", "HSK", "Hán tự"],
+    badge: "Ngoại ngữ", badgeBg: "bg-red-900/60 text-red-300 border-red-700/50",
+    hoverGlow: "hover-glow-red",
+    hoverBorder: "hover:border-red-500/50",
+  },
 ];
 
 const allData = [
@@ -98,6 +140,9 @@ const allData = [
   { lessons: nextjsLessons },
   { lessons: nestjsLessons },
   { lessons: dockerLessons },
+  { lessons: kidsLessons },
+  { lessons: englishLessons },
+  { lessons: chineseLessons },
 ];
 
 const PATH = [

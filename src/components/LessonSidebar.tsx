@@ -3,13 +3,19 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-import type { Lesson } from "@/data/typescript-lessons";
 import { useProgress } from "@/hooks/useProgress";
 
 type CourseColor = "blue" | "orange" | "green" | "purple" | "pink" | "teal" | "yellow" | "sky" | "red";
 
+interface SidebarLesson {
+  id: string;
+  title: string;
+  level: "Cơ bản" | "Trung cấp" | "Nâng cao";
+  exercises: unknown[];
+}
+
 interface LessonSidebarProps {
-  lessons: Lesson[];
+  lessons: SidebarLesson[];
   coursePath: string;
   courseTitle: string;
   courseColor: CourseColor;

@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "Bash(findstr /i \"error\\\\|failed\\\\|warn\")",
-      "Bash(Select-String -Pattern \"Error|Failed|warn\")"
+      "Bash(Select-String -Pattern \"Error|Failed|warn\")",
+      "Read(//c/Users/God/.claude/projects/d--BT-Next-js-learn-learn_ts/**)",
+      "Bash(git -C \"d:\\\\BT\\\\Next.js\\\\learn\\\\learn_ts\" status)",
+      "Bash(git -C \"d:\\\\BT\\\\Next.js\\\\learn\\\\learn_ts\" log --oneline -8)",
+      "Bash(mkdir -p \"d:/BT/Next.js/learn/learn_ts/src/app/kids/[lesson]\" \"d:/BT/Next.js/learn/learn_ts/src/app/english/[lesson]\" \"d:/BT/Next.js/learn/learn_ts/src/app/chinese/[lesson]\")",
+      "Bash(npx tsc *)"
+    ],
+    "additionalDirectories": [
+      "d:\\BT\\Next.js\\learn\\learn_ts\\src\\app\\kids"
     ]
   }
 }

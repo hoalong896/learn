@@ -16,7 +16,7 @@ interface ChatContext {
 
 interface ChatWidgetProps {
   context?: ChatContext;
-  courseColor?: "blue" | "orange" | "green" | "purple" | "pink" | "teal";
+  courseColor?: "blue" | "orange" | "green" | "purple" | "pink" | "teal" | "yellow" | "sky" | "red";
 }
 
 function MarkdownText({ text }: { text: string }) {
@@ -62,7 +62,7 @@ const HISTORY_KEY = (ctx?: ChatContext) =>
     ? `devlearn_chat_${ctx.courseTitle}_${ctx.lessonId}`
     : null;
 
-type CourseColor = "blue" | "orange" | "green" | "purple" | "pink" | "teal";
+type CourseColor = "blue" | "orange" | "green" | "purple" | "pink" | "teal" | "yellow" | "sky" | "red";
 
 const COLOR: Record<CourseColor, { grad: string; btn: string; shadow: string; border: string; accent: string }> = {
   blue:   { grad: "from-blue-600 to-indigo-600",     btn: "bg-blue-600 hover:bg-blue-500",     shadow: "shadow-blue-900/60",   border: "border-blue-700/50",   accent: "text-blue-400" },
@@ -71,6 +71,9 @@ const COLOR: Record<CourseColor, { grad: string; btn: string; shadow: string; bo
   purple: { grad: "from-purple-600 to-violet-600",   btn: "bg-purple-600 hover:bg-purple-500", shadow: "shadow-purple-900/60", border: "border-purple-700/50", accent: "text-purple-400" },
   pink:   { grad: "from-pink-600 to-rose-600",       btn: "bg-pink-600 hover:bg-pink-500",     shadow: "shadow-pink-900/60",   border: "border-pink-700/50",   accent: "text-pink-400" },
   teal:   { grad: "from-teal-600 to-cyan-600",       btn: "bg-teal-600 hover:bg-teal-500",     shadow: "shadow-teal-900/60",   border: "border-teal-700/50",   accent: "text-teal-400" },
+  yellow: { grad: "from-yellow-500 to-amber-500",    btn: "bg-yellow-500 hover:bg-yellow-400", shadow: "shadow-yellow-900/60", border: "border-yellow-700/50", accent: "text-yellow-400" },
+  sky:    { grad: "from-sky-600 to-cyan-600",        btn: "bg-sky-600 hover:bg-sky-500",       shadow: "shadow-sky-900/60",    border: "border-sky-700/50",    accent: "text-sky-400" },
+  red:    { grad: "from-red-600 to-rose-600",        btn: "bg-red-600 hover:bg-red-500",       shadow: "shadow-red-900/60",    border: "border-red-700/50",    accent: "text-red-400" },
 };
 
 export default function ChatWidget({ context, courseColor = "blue" }: ChatWidgetProps) {
